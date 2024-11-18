@@ -13,6 +13,6 @@ class VoucherPolicy
      */
     public function create(User $user): bool
     {
-        return $user->vouchers()->count() <= Voucher::LIMIT;
+        return $user->vouchers()->count() < Voucher::LIMIT;
     }
 }
