@@ -27,7 +27,7 @@ class VoucherController extends Controller
     public function store(StoreRequest $request)
     {
         $data = array_merge($request->validated(), [
-            'code' => $request->code ?? Str::random(40),
+            'code' => $request->code ?? Str::random(5),
             'user_id' => Auth::id(),
         ]);
 

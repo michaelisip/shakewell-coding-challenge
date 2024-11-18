@@ -18,7 +18,7 @@ class VoucherFactory extends Factory
     public function definition(): array
     {
         return [
-            'code' => Str::random(40),
+            'code' => Str::random(5),
             'user_id' => '1',
             'description' => fake()->sentence(),
             'amount' => fake()->numberBetween(10, 1000),
