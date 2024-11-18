@@ -16,6 +16,7 @@ class RegisterController extends Controller
         $token = $user->createToken(User::TOKEN_NAME)->plainTextToken;
 
         return response()->json([
+            'message' => "You're all set! Your account has been created.",
             'token' => $token,
             'user' => $user,
         ]);

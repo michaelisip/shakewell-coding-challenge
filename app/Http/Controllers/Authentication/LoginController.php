@@ -22,13 +22,16 @@ class LoginController extends Controller
 
         if (! $user || ! Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
-                'email' => ['The provided credentials are incorrect.'],
+                'email' => ['Oops! The username or password you entered is incorrect.'],
             ]);
         }
 
         $token = $user->createToken(User::TOKEN_NAME)->plainTextToken;
 
-        return response()->json(['token' => $token]);
+        return response()->json([
+            'message' => 'You are now logged in!',
+            'token' => $token
+        ]);
     }
 
     public function logout(Request $request)

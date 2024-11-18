@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Vouchers\StoreRequest;
 use App\Http\Requests\Vouchers\UpdateRequest;
 use App\Models\Voucher;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class VoucherController extends Controller
 {
@@ -37,11 +39,16 @@ class VoucherController extends Controller
             'user_id' => Auth::id(),
         ]);
 
-        $voucher = Voucher::create($data);
+        try {
+            $voucher = Voucher::create($data);
 
-        return response()->json([
-            'data' => $voucher,
-        ]);
+            return response()->json([
+                'message' => 'Voucher created successfully.',
+                'data' => $voucher,
+            ]);
+        } catch (\Throwable $th) {
+            throw new Exception("There was an issue creating the voucher. Please try again later.");
+        }
     }
 
     /**
@@ -49,8 +56,15 @@ class VoucherController extends Controller
      */
     public function show(string $id)
     {
+        $voucher = Voucher::find($id);
+
+        if (! $voucher) {
+            throw new NotFoundHttpException('No voucher found with the given ID.');
+        }
+
         return response()->json([
-            'data' => Voucher::findOrFail($id),
+            'message' => 'Voucher details retrieved successfully.',
+            'data' => $voucher
         ]);
     }
 
@@ -59,16 +73,22 @@ class VoucherController extends Controller
      */
     public function update(UpdateRequest $request, string $id)
     {
-        return response()->json([
-            'data' => $request->validated(),
-        ]);
+        $voucher = Voucher::find($id);
 
-        $voucher = Voucher::findOrFail($id);
-        $voucher->update($request->validated());
+        if (! $voucher) {
+            throw new NotFoundHttpException('Voucher not found. Update could not be completed.');
+        }
 
-        return response()->json([
-            'data' => $voucher,
-        ]);
+        try {
+            $voucher->update($request->validated());
+
+            return response()->json([
+                'message' => 'Voucher updated successfully.',
+                'data' => $voucher
+            ]);
+        } catch (\Throwable $th) {
+            throw new Exception("There was an issue updating the voucher. Please try again later.");
+        }
     }
 
     /**
@@ -76,10 +96,12 @@ class VoucherController extends Controller
      */
     public function destroy(string $id)
     {
-        $voucher = Voucher::findOrFail($id)->delete();
+        $voucher = Voucher::find($id);
 
-        return response()->json([
-            'message' => 'Successfully deleted voucher',
-        ]);
+        if (! $voucher) {
+            throw new NotFoundHttpException('Voucher not found. Deletion could not be completed.');
+        }
+
+        return response()->json(['message' => 'Voucher deleted successfully.']);
     }
 }
