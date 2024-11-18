@@ -14,7 +14,8 @@ Route::get('/health', function(Request $request) {
     ]);
 });
 
-Route::post('/login', LoginController::class);
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout']);
 Route::post('/register', RegisterController::class);
 
 Route::get('/user', function (Request $request) {
