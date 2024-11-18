@@ -7,7 +7,9 @@ use App\Http\Requests\Vouchers\UpdateRequest;
 use App\Models\Voucher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class VoucherController extends Controller
 {
@@ -16,9 +18,7 @@ class VoucherController extends Controller
      */
     public function index()
     {
-        return response()->json([
-            'data' => Voucher::where('user_id', Auth::id())->get(),
-        ]);
+        return response()->json(Voucher::where('user_id', Auth::id())->paginate());
     }
 
     /**
@@ -26,6 +26,12 @@ class VoucherController extends Controller
      */
     public function store(StoreRequest $request)
     {
+        if (! Gate::allows('create-voucher')) {
+            throw ValidationException::withMessages([
+                'message' => 'Voucher limit of 10 has been exceeded. Please reduce the number of vouchers.'
+            ]);
+        }
+
         $data = array_merge($request->validated(), [
             'code' => $request->code ?? Str::random(5),
             'user_id' => Auth::id(),
