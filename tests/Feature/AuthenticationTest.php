@@ -2,9 +2,11 @@
 
 namespace Tests\Feature;
 
+use App\Mail\WelcomeMail;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
@@ -12,15 +14,20 @@ class AuthenticationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_guest_can_register()
+    public function getRandomRegisterData()
     {
-        $data = [
+        return [
             'name' => fake()->name,
             'username' => fake()->userName,
             'email' => self::TEST_EMAIL,
             'password' => self::TEST_PASSWORD,
             'password_confirmation' => self::TEST_PASSWORD,
         ];
+    }
+
+    public function test_guest_can_register()
+    {
+        $data = $this->getRandomRegisterData();
 
         $response = $this->postJson('/api/register', $data);
         $token = $response->json('token');
@@ -33,6 +40,19 @@ class AuthenticationTest extends TestCase
         $this->assertDatabaseHas('users', [
             'email' => self::TEST_EMAIL,
         ]);
+    }
+
+    public function test_user_should_receive_welcome_mail_upon_register()
+    {
+        Mail::fake();
+
+        $data = $this->getRandomRegisterData();
+
+        $response = $this->postJson('/api/register', $data);
+
+        $response->assertStatus(201);
+
+        Mail::assertSent(WelcomeMail::class);
     }
 
     public function test_user_can_login_with_valid_credentials()
@@ -64,7 +84,7 @@ class AuthenticationTest extends TestCase
         Sanctum::actingAs($user);
 
         $response = $this->postJson('/api/logout');
-        $response->assertOk();
+        $response->assertStatus(204);
     }
 
     public function test_guest_cannot_visit_protected_routes()
