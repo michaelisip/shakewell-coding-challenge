@@ -19,6 +19,6 @@ class RegisterController extends Controller
             'message' => "You're all set! Your account has been created.",
             'token' => $token,
             'user' => $user,
-        ]);
+        ], 201);
     }
 }
