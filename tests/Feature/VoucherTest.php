@@ -13,8 +13,6 @@ use Tests\TestCase;
 
 class VoucherTest extends TestCase
 {
-    use DatabaseTruncation;
-
     protected $user;
 
     protected $vouchers;
@@ -24,11 +22,6 @@ class VoucherTest extends TestCase
         parent::setUp();
 
         $this->user = User::factory()->create();
-
-        // $this->vouchers = Voucher::factory()
-        //     ->state(['user_id' => $this->user->id])
-        //     ->count(5)
-        //     ->create();
     }
 
     public function test_guest_cannot_access_vouchers(): void
@@ -53,12 +46,13 @@ class VoucherTest extends TestCase
     {
         Sanctum::actingAs($this->user);
 
-        $response = $this->getJson('/api/vouchers/1');
+        $voucher = Voucher::factory()
+            ->state(['user_id' => $this->user->id])
+            ->create();
+
+        $response = $this->getJson("/api/vouchers/{$voucher->id}");
 
         $response->assertOk();
-        // $response->assertExactJson([
-        //     'data' => $this->user->vouchers()->first()
-        // ]);
     }
 
     public function test_user_can_create_new_vouchers()
