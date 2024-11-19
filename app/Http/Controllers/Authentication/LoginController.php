@@ -41,7 +41,7 @@ class LoginController extends Controller
         if ($user) {
             $user->currentAccessToken()->delete();
 
-            return response()->json(['message' => 'You’ve been logged out.']);
+            return response()->json(['message' => 'You’ve been logged out.'], 204);
         }
 
         throw new UnauthorizedException('You are not logged in.');

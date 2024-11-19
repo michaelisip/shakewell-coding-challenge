@@ -45,7 +45,7 @@ class VoucherController extends Controller
             return response()->json([
                 'message' => 'Voucher created successfully.',
                 'data' => $voucher,
-            ]);
+            ], 201);
         } catch (\Throwable $th) {
             throw new Exception("There was an issue creating the voucher. Please try again later.");
         }
@@ -102,6 +102,7 @@ class VoucherController extends Controller
             throw new NotFoundHttpException('Voucher not found. Deletion could not be completed.');
         }
 
-        return response()->json(['message' => 'Voucher deleted successfully.']);
+        $voucher->delete();
+        return response()->json(['message' => 'Voucher deleted successfully.'], 204);
     }
 }

@@ -22,7 +22,7 @@ class AuthenticationTest extends TestCase
             'password_confirmation' => self::TEST_PASSWORD,
         ];
 
-        $response = $this->post('/api/register', $data);
+        $response = $this->postJson('/api/register', $data);
         $token = $response->json('token');
 
         $response->assertStatus(201);
@@ -54,7 +54,7 @@ class AuthenticationTest extends TestCase
 
         Sanctum::actingAs($user);
 
-        $response = $this->get('/api/user');
+        $response = $this->getJson('/api/user');
         $response->assertStatus(200);
     }
 
@@ -63,7 +63,7 @@ class AuthenticationTest extends TestCase
         $user = User::factory()->create();
         Sanctum::actingAs($user);
 
-        $response = $this->post('/api/logout');
+        $response = $this->postJson('/api/logout');
         $response->assertOk();
     }
 
