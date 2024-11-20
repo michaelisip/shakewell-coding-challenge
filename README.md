@@ -51,3 +51,8 @@ sail artisan test
 ```
 http://localhost/docs
 ```
+
+## TODOs
+
+-   [ ] voucher expiration and percentage type
+-   [ ] run jobs for updating expired vouchers
