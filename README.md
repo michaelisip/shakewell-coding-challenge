@@ -15,7 +15,7 @@ Coding challenge as part of my application for Senior PHP Developer (Laravel) fo
 
 Ensure you have the following installed on your machine:
 
--   [VS Code](https://code.visualstudio.com/)
+-   Text Editor (Recommended: [VS Code](https://code.visualstudio.com/))
 -   [Docker](https://www.docker.com/)
 -   [Git](https://git-scm.com/)
 
