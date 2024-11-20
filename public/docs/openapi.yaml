@@ -1,0 +1,272 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/health:
+    get:
+      summary: ''
+      operationId: getApiHealth
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Ok
+                properties:
+                  message:
+                    type: string
+                    example: Ok
+      tags:
+        - Endpoints
+      security: []
+  /api/login:
+    post:
+      summary: ''
+      operationId: postApiLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'This field is required when <code>username</code> is not present.'
+                  example: null
+                  nullable: false
+                username:
+                  type: string
+                  description: 'This field is required when <code>email</code> is not present.'
+                  example: null
+                  nullable: false
+                password:
+                  type: string
+                  description: ''
+                  example: velit
+                  nullable: false
+              required:
+                - password
+      security: []
+  /api/logout:
+    post:
+      summary: ''
+      operationId: postApiLogout
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/register:
+    post:
+      summary: ''
+      operationId: postApiRegister
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: velit
+                  nullable: false
+                username:
+                  type: string
+                  description: ''
+                  example: voluptate
+                  nullable: false
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: jacobson.cordia@example.com
+                  nullable: false
+                password:
+                  type: string
+                  description: 'Must be at least 8 characters.'
+                  example: "nH=Pf$Y'h<"
+                  nullable: false
+              required:
+                - name
+                - username
+                - email
+                - password
+      security: []
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/vouchers:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Ut veritatis necessitatibus voluptatem eveniet a ut molestias.'
+                  nullable: true
+                amount:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 59
+                  nullable: false
+              required:
+                - amount
+      security: []
+  '/api/vouchers/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: ''
+                  example: ut
+                  nullable: false
+                description:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: 'Excepturi rem maxime excepturi nobis qui saepe.'
+                  nullable: true
+                amount:
+                  type: number
+                  description: 'Must be at least 0.'
+                  example: 44
+                  nullable: false
+              required:
+                - code
+                - amount
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the voucher.'
+        example: sint
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Endpoints
+    description: ''
