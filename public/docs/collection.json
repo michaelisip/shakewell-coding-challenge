@@ -9,24 +9,120 @@
         }
     ],
     "info": {
-        "name": "Laravel",
-        "_postman_id": "f0817357-20d5-4e48-b4e8-cdaf9b763e6c",
+        "name": "Shakewell API Documentation",
+        "_postman_id": "cab43e29-b6fc-4d84-a658-f9864eacc7c7",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
+            "name": "Authentication",
+            "description": "",
+            "item": [
+                {
+                    "name": "Login user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"ipsum\",\"password\":\"libero\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Logout user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Register new user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"sit\",\"username\":\"corrupti\",\"email\":\"jaylon84@example.com\",\"password\":\"tCK?_vXLo'D\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
             "name": "Endpoints",
             "description": "",
             "item": [
                 {
-                    "name": "GET api\/health",
+                    "name": "GET api\/health-check",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/health",
+                            "path": "api\/health-check",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/health"
+                            "raw": "{{baseUrl}}\/api\/health-check"
                         },
                         "method": "GET",
                         "header": [
@@ -62,103 +158,19 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"message\":\"Ok\"}",
+                            "body": "{\"status\":\"OK\",\"timestamp\":\"November 20, 2024, 2:26 PM\"}",
                             "name": ""
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "name": "Profile",
+            "description": "",
+            "item": [
                 {
-                    "name": "POST api\/login",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/login",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/login"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"password\":\"velit\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "POST api\/logout",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/logout",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/logout"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "POST api\/register",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/register",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/register"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"velit\",\"username\":\"voluptate\",\"email\":\"jacobson.cordia@example.com\",\"password\":\"nH=Pf$Y'h<\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "GET api\/user",
+                    "name": "Get user details",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -204,9 +216,15 @@
                             "name": ""
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "name": "Vouchers",
+            "description": "",
+            "item": [
                 {
-                    "name": "Display a listing of the resource.",
+                    "name": "Get All Vouchers",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -254,7 +272,7 @@
                     ]
                 },
                 {
-                    "name": "Store a newly created resource in storage.",
+                    "name": "Create Voucher",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -275,7 +293,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"description\":\"Ut veritatis necessitatibus voluptatem eveniet a ut molestias.\",\"amount\":59}"
+                            "raw": "{\"description\":\"Numquam aut nisi perspiciatis totam unde animi voluptatem dolores.\",\"amount\":33}"
                         },
                         "description": "",
                         "auth": {
@@ -285,7 +303,7 @@
                     "response": []
                 },
                 {
-                    "name": "Display the specified resource.",
+                    "name": "Show Voucher",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -296,7 +314,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "sint",
+                                    "value": "reprehenderit",
                                     "description": "The ID of the voucher."
                                 }
                             ]
@@ -341,7 +359,7 @@
                     ]
                 },
                 {
-                    "name": "Update the specified resource in storage.",
+                    "name": "Update Voucher",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -370,7 +388,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"code\":\"ut\",\"description\":\"Excepturi rem maxime excepturi nobis qui saepe.\",\"amount\":44}"
+                            "raw": "{\"code\":\"adipisci\",\"description\":\"Dolores aut cumque iusto ipsam odio quia quae.\",\"amount\":70}"
                         },
                         "description": "",
                         "auth": {
@@ -380,7 +398,7 @@
                     "response": []
                 },
                 {
-                    "name": "Remove the specified resource from storage.",
+                    "name": "Delete Voucher",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -391,7 +409,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "excepturi",
+                                    "value": "quisquam",
                                     "description": "The ID of the voucher."
                                 }
                             ]
