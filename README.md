@@ -52,6 +52,10 @@ sail artisan test
 http://localhost/docs
 ```
 
+## Postman Collection
+
+You can import the Postman collection generated on `public/docs` folder on API clients like [Postman](https://www.postman.com/) or [Insomia](https://insomnia.rest/)
+
 ## TODOs
 
 -   [ ] voucher expiration and percentage type
