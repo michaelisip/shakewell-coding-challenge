@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VoucherController;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -19,9 +20,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::post('/register', RegisterController::class);
 
 Route::middleware('auth:sanctum')->group(function() {
-    Route::get('user', function (Request $request) {
-        return $request->user();
-    });
+    /** profile */
+    Route::get('user', ProfileController::class);
 
+    /** vouchers */
     Route::apiResource('vouchers', VoucherController::class);
 });
