@@ -12,7 +12,7 @@ class HealthCheckTest extends TestCase
      */
     public function test_the_application_returns_a_successful_response(): void
     {
-        $response = $this->getJson('/api/health');
+        $response = $this->getJson('/api/health-check');
 
         $response->assertStatus(200);
     }
