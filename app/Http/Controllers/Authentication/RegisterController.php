@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
+    /**
+     * Register new user
+     *
+     * @group Authentication
+     */
     public function __invoke(RegisterRequest $request)
     {
         $user = User::create($request->validated());

@@ -16,7 +16,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class VoucherController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Get All Vouchers
+     *
+     * @group Vouchers
      */
     public function index()
     {
@@ -24,7 +26,9 @@ class VoucherController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create Voucher
+     *
+     * @group Vouchers
      */
     public function store(StoreRequest $request)
     {
@@ -52,7 +56,9 @@ class VoucherController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show Voucher
+     *
+     * @group Vouchers
      */
     public function show(string $id)
     {
@@ -69,7 +75,9 @@ class VoucherController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update Voucher
+     *
+     * @group Vouchers
      */
     public function update(UpdateRequest $request, string $id)
     {
@@ -92,7 +100,9 @@ class VoucherController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete Voucher
+     *
+     * @group Vouchers
      */
     public function destroy(string $id)
     {

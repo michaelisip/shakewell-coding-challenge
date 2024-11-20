@@ -13,6 +13,11 @@ use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
+    /**
+     * Login user
+     *
+     * @group Authentication
+     */
     public function login(LoginRequest $request)
     {
         $user = User::where(function ($query) use ($request) {
@@ -34,6 +39,11 @@ class LoginController extends Controller
         ]);
     }
 
+    /**
+     * Logout user
+     *
+     * @group Authentication
+     */
     public function logout(Request $request)
     {
         $user = $request->user('sanctum');
