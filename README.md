@@ -58,5 +58,7 @@ You can import the Postman collection generated on `public/docs` folder on API c
 
 ## TODOs
 
--   [ ] voucher expiration and percentage type
--   [ ] run jobs for updating expired vouchers
+-   [ ] voucher type; fixed or percentage
+-   [ ] add voucher expiration and limit to vouchers
+-   [ ] schedule jobs to set expired vouchers
+-   [ ] add statistics; usage count, etc..
