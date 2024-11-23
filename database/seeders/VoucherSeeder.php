@@ -13,6 +13,18 @@ class VoucherSeeder extends Seeder
      */
     public function run(): void
     {
-        Voucher::factory()->create();
+        // fixed vouchers
+        Voucher::factory()
+            ->fixed()
+            ->expiration()
+            ->count(10)
+            ->create();
+
+        // percentage vouchers
+        Voucher::factory()
+            ->percentage()
+            ->expiration()
+            ->count(10)
+            ->create();
     }
 }
