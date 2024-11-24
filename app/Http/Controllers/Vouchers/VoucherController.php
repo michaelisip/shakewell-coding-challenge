@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Vouchers;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Vouchers\StoreRequest;
 use App\Http\Requests\Vouchers\UpdateRequest;
 use App\Models\Voucher;

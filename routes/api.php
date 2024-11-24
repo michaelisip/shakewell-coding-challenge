@@ -3,7 +3,8 @@
 use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Authentication\RegisterController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\VoucherController;
+use App\Http\Controllers\Vouchers\VoucherController;
+use App\Http\Controllers\Vouchers\ApplicationController;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,5 @@ Route::middleware('auth:sanctum')->group(function() {
 
     /** vouchers */
     Route::apiResource('vouchers', VoucherController::class);
+    Route::post('vouchers/apply', [ApplicationController::class, 'apply']);
 });
