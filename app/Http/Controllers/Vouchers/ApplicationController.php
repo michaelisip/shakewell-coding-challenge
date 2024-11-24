@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
 {
+    /**
+     * Apply Voucher
+     *
+     * @group Vouchers
+     */
     public function apply(ApplyRequest $request)
     {
         $originalPrice = $request->original_price;

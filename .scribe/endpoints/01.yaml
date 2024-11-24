@@ -26,7 +26,7 @@ endpoints:
         name: username
         description: ''
         required: true
-        example: ipsum
+        example: deserunt
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -36,15 +36,15 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: libero
+        example: necessitatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      username: ipsum
-      password: libero
+      username: deserunt
+      password: necessitatibus
     fileParameters: []
     responses: []
     responseFields: []
@@ -108,7 +108,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: sit
+        example: quasi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -118,7 +118,7 @@ endpoints:
         name: username
         description: ''
         required: true
-        example: corrupti
+        example: similique
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -128,7 +128,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: jaylon84@example.com
+        example: wolf.jodie@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -138,17 +138,17 @@ endpoints:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: "tCK?_vXLo'D"
+        example: 'F{?2{HQ2=.Ga"P6=?('
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: sit
-      username: corrupti
-      email: jaylon84@example.com
-      password: "tCK?_vXLo'D"
+      name: quasi
+      username: similique
+      email: wolf.jodie@example.org
+      password: 'F{?2{HQ2=.Ga"P6=?('
     fileParameters: []
     responses: []
     responseFields: []

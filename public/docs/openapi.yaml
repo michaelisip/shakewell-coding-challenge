@@ -26,12 +26,12 @@ paths:
                 username:
                   type: string
                   description: ''
-                  example: ipsum
+                  example: deserunt
                   nullable: false
                 password:
                   type: string
                   description: ''
-                  example: libero
+                  example: necessitatibus
                   nullable: false
               required:
                 - username
@@ -66,22 +66,22 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: sit
+                  example: quasi
                   nullable: false
                 username:
                   type: string
                   description: ''
-                  example: corrupti
+                  example: similique
                   nullable: false
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: jaylon84@example.com
+                  example: wolf.jodie@example.org
                   nullable: false
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: "tCK?_vXLo'D"
+                  example: 'F{?2{HQ2=.Ga"P6=?('
                   nullable: false
               required:
                 - name
@@ -104,14 +104,14 @@ paths:
                 type: object
                 example:
                   status: OK
-                  timestamp: 'November 20, 2024, 2:26 PM'
+                  timestamp: 'November 24, 2024, 6:18 PM'
                 properties:
                   status:
                     type: string
                     example: OK
                   timestamp:
                     type: string
-                    example: 'November 20, 2024, 2:26 PM'
+                    example: 'November 24, 2024, 6:18 PM'
       tags:
         - Endpoints
       security: []
@@ -182,12 +182,12 @@ paths:
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Numquam aut nisi perspiciatis totam unde animi voluptatem dolores.'
+                  example: 'Culpa necessitatibus praesentium quaerat adipisci veritatis.'
                   nullable: true
                 amount:
                   type: number
                   description: 'Must be at least 0.'
-                  example: 33
+                  example: 90
                   nullable: false
               required:
                 - amount
@@ -232,17 +232,17 @@ paths:
                 code:
                   type: string
                   description: ''
-                  example: adipisci
+                  example: et
                   nullable: false
                 description:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: 'Dolores aut cumque iusto ipsam odio quia quae.'
+                  example: 'Quasi in molestiae aut sit.'
                   nullable: true
                 amount:
                   type: number
                   description: 'Must be at least 0.'
-                  example: 70
+                  example: 49
                   nullable: false
               required:
                 - code
@@ -262,10 +262,40 @@ paths:
         in: path
         name: id
         description: 'The ID of the voucher.'
-        example: reprehenderit
+        example: occaecati
         required: true
         schema:
           type: string
+  /api/vouchers/apply:
+    post:
+      summary: 'Apply Voucher'
+      operationId: applyVoucher
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Vouchers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                voucher:
+                  type: string
+                  description: 'The <code>code</code> of an existing record in the vouchers table.'
+                  example: ut
+                  nullable: false
+                original_price:
+                  type: number
+                  description: ''
+                  example: 914.272499
+                  nullable: false
+              required:
+                - voucher
+                - original_price
+      security: []
 tags:
   -
     name: Authentication

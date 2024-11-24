@@ -75,7 +75,7 @@ endpoints:
         name: description
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: 'Numquam aut nisi perspiciatis totam unde animi voluptatem dolores.'
+        example: 'Culpa necessitatibus praesentium quaerat adipisci veritatis.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -85,15 +85,15 @@ endpoints:
         name: amount
         description: 'Must be at least 0.'
         required: true
-        example: 33
+        example: 90
         type: number
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      description: 'Numquam aut nisi perspiciatis totam unde animi voluptatem dolores.'
-      amount: 33
+      description: 'Culpa necessitatibus praesentium quaerat adipisci veritatis.'
+      amount: 90
     fileParameters: []
     responses: []
     responseFields: []
@@ -123,14 +123,14 @@ endpoints:
         name: id
         description: 'The ID of the voucher.'
         required: true
-        example: reprehenderit
+        example: occaecati
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: reprehenderit
+      id: occaecati
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -174,14 +174,14 @@ endpoints:
         name: id
         description: 'The ID of the voucher.'
         required: true
-        example: molestiae
+        example: quam
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: molestiae
+      id: quam
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -189,7 +189,7 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: adipisci
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -199,7 +199,7 @@ endpoints:
         name: description
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: 'Dolores aut cumque iusto ipsam odio quia quae.'
+        example: 'Quasi in molestiae aut sit.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -209,16 +209,16 @@ endpoints:
         name: amount
         description: 'Must be at least 0.'
         required: true
-        example: 70
+        example: 49
         type: number
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      code: adipisci
-      description: 'Dolores aut cumque iusto ipsam odio quia quae.'
-      amount: 70
+      code: et
+      description: 'Quasi in molestiae aut sit.'
+      amount: 49
     fileParameters: []
     responses: []
     responseFields: []
@@ -248,18 +248,70 @@ endpoints:
         name: id
         description: 'The ID of the voucher.'
         required: true
-        example: quisquam
+        example: officia
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: quisquam
+      id: officia
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/vouchers/apply
+    metadata:
+      groupName: Vouchers
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Apply Voucher'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      voucher:
+        name: voucher
+        description: 'The <code>code</code> of an existing record in the vouchers table.'
+        required: true
+        example: ut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      original_price:
+        name: original_price
+        description: ''
+        required: true
+        example: 914.272499
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      voucher: ut
+      original_price: 914.272499
     fileParameters: []
     responses: []
     responseFields: []

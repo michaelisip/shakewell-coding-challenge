@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Shakewell API Documentation",
-        "_postman_id": "cab43e29-b6fc-4d84-a658-f9864eacc7c7",
+        "_postman_id": "f9e9be70-f7e9-4901-a300-032069fa8edc",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"ipsum\",\"password\":\"libero\"}"
+                            "raw": "{\"username\":\"deserunt\",\"password\":\"necessitatibus\"}"
                         },
                         "description": "",
                         "auth": {
@@ -100,7 +100,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"sit\",\"username\":\"corrupti\",\"email\":\"jaylon84@example.com\",\"password\":\"tCK?_vXLo'D\"}"
+                            "raw": "{\"name\":\"quasi\",\"username\":\"similique\",\"email\":\"wolf.jodie@example.org\",\"password\":\"F{?2{HQ2=.Ga\\\"P6=?(\"}"
                         },
                         "description": "",
                         "auth": {
@@ -158,7 +158,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"status\":\"OK\",\"timestamp\":\"November 20, 2024, 2:26 PM\"}",
+                            "body": "{\"status\":\"OK\",\"timestamp\":\"November 24, 2024, 6:18 PM\"}",
                             "name": ""
                         }
                     ]
@@ -293,7 +293,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"description\":\"Numquam aut nisi perspiciatis totam unde animi voluptatem dolores.\",\"amount\":33}"
+                            "raw": "{\"description\":\"Culpa necessitatibus praesentium quaerat adipisci veritatis.\",\"amount\":90}"
                         },
                         "description": "",
                         "auth": {
@@ -314,7 +314,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "reprehenderit",
+                                    "value": "occaecati",
                                     "description": "The ID of the voucher."
                                 }
                             ]
@@ -370,7 +370,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "molestiae",
+                                    "value": "quam",
                                     "description": "The ID of the voucher."
                                 }
                             ]
@@ -388,7 +388,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"code\":\"adipisci\",\"description\":\"Dolores aut cumque iusto ipsam odio quia quae.\",\"amount\":70}"
+                            "raw": "{\"code\":\"et\",\"description\":\"Quasi in molestiae aut sit.\",\"amount\":49}"
                         },
                         "description": "",
                         "auth": {
@@ -409,7 +409,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "quisquam",
+                                    "value": "officia",
                                     "description": "The ID of the voucher."
                                 }
                             ]
@@ -426,6 +426,37 @@
                             }
                         ],
                         "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Apply Voucher",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/vouchers\/apply",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/vouchers\/apply"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"voucher\":\"ut\",\"original_price\":914.272499}"
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
