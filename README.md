@@ -10,6 +10,8 @@ Coding challenge as part of my application for Senior PHP Developer (Laravel) fo
 -   Docker
 -   Postman
 -   Scribe
+-   Redis
+-   Horizon
 
 ## Prerequisites
 
@@ -52,13 +54,26 @@ sail artisan test
 http://localhost/docs
 ```
 
+## Queues and Running Tasks
+
+You can run the queue and scheduled jobs with the following command:
+
+```
+sail artisan queue:work
+
+sail artisan schedule:work
+```
+
+Then monitor the queued jobs using Laravel Horizon
+
+```
+http://localhost/horizon
+```
+
 ## Postman Collection
 
 You can import the Postman collection generated on `public/docs` folder on API clients like [Postman](https://www.postman.com/) or [Insomia](https://insomnia.rest/)
 
 ## TODOs
 
--   [ ] voucher type; fixed or percentage
--   [ ] add voucher expiration and limit to vouchers
--   [ ] schedule jobs to set expired vouchers
 -   [ ] add statistics; usage count, etc..
