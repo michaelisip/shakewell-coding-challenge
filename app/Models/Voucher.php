@@ -30,4 +30,14 @@ class Voucher extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function voucherStatus()
+    {
+        return $this->belongsTo(VoucherStatus::class);
+    }
+
+    public static function getVoucher(string $code)
+    {
+        return Voucher::where('code', $code)->first();
+    }
 }
