@@ -1,6 +1,6 @@
 ## About
 
-Coding challenge as part of my application for Senior PHP Developer (Laravel) for Shakewell Agency
+Coding challenge as part of my application for a position as Senior PHP Developer (Laravel)
 
 ## Tools Used
 
